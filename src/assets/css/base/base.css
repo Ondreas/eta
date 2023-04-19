@@ -1,0 +1,47 @@
+@layer base {
+    /* @FONT-FACE -------------------------------------- */
+    @font-face {
+        font-family: "Inter var";
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+        font-named-instance: "Regular";
+        src: url("../fonts/Inter.var.woff2?v=3.19") format("woff2");
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-smoothing: antialiased;
+        text-rendering: optimizeSpeed;
+        word-break: break-word;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    [hidden],
+    [x-cloak] {
+        display: none !important;
+    }
+
+    abbr[title] {
+        text-decoration: none;
+        text-decoration-line: none;
+    }
+}
