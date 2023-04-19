@@ -44,4 +44,28 @@
         text-decoration: none;
         text-decoration-line: none;
     }
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"],
+    input {
+        appearance: none;
+        user-select: none;
+    }
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+
+    button:focus-visible,
+    [type="button"]:focus-visible,
+    [type="reset"]:focus-visible,
+    [type="submit"]:focus-visible,
+    input:focus-visible {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
 }
