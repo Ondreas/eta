@@ -1,0 +1,29 @@
+/* ============================================= */
+/* UI :: Base                                    */
+/* ============================================= */
+@layer base {
+    :root {
+        /* UI :: base -------------------------- */
+        --ui-size: theme(spacing[11]);
+        --ui-w: var(--ui-size);
+        --ui-h: var(--ui-size);
+        --ui-px: theme(padding[4]);
+        --ui-py: theme(padding[2.5]);
+        --ui-fs: theme(fontSize.sm);
+        --ui-fw: theme(fontWeight.medium);
+        --ui-lh: theme(lineHeight.normal);
+        --ui-tt: none; /* capitalize */
+        --ui-br: theme(borderRadius.md);
+        --ui-bw: theme(borderWidth.DEFAULT);
+        /* UI :: Colors ------------------------ */
+        --ui-bc: var(--luna-bc);
+        --ui-txt: var(--luna-txt);
+        --ui-bkg: var(--luna-bkg);
+        --ui-txt-f: var(--luna-txt-f);
+        --ui-bkg-f: var(--luna-bkg-f);
+        --ui-txt-h: var(--luna-txt-h);
+        --ui-bkg-h: var(--luna-bkg-h);
+        --ui-txt-a: var(--luna-txt-a);
+        --ui-bkg-a: var(--luna-bkg-a);
+    }
+}
