@@ -1,0 +1,33 @@
+/*
+** ------------------------------------------------
+**  Variables
+** ------------------------------------------------
+*/
+@import "./variables/variables.css";
+
+/*
+** ------------------------------------------------
+** Base
+** ------------------------------------------------
+*/
+/* @tailwind base; */
+@import "tailwindcss/base";
+@import "./base/base.css";
+
+/*
+** ------------------------------------------------
+** Components
+** ------------------------------------------------
+*/
+/* @tailwind components; */
+@import "tailwindcss/components";
+@import "./components/components.css";
+
+/*
+** ------------------------------------------------
+** Utilities
+** ------------------------------------------------
+*/
+/* @tailwind utilities; */
+@import "tailwindcss/utilities";
+@import "./utilities/utilities.css";
