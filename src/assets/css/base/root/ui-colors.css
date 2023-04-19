@@ -1,0 +1,54 @@
+/* ============================================= */
+/* UI :: Colors                                  */
+/* ============================================= */
+@layer base {
+    :root {
+        /* UI :: Colors | Light theme ---------- */
+        --luna-bc: theme(colors.gray.300);
+        --luna-txt: theme(colors.gray.600);
+        --luna-bkg: theme(colors.white);
+        --luna-txt-f: theme(colors.gray.900);
+        --luna-bkg-f: theme(colors.gray.50);
+        --luna-txt-h: theme(colors.gray.900);
+        --luna-bkg-h: theme(colors.gray.100);
+        --luna-txt-a: theme(colors.gray.900);
+        --luna-bkg-a: theme(colors.gray.200);
+        /* UI :: Colors | Dark theme ----------- */
+        --nero-bc: theme(colors.gray.600);
+        --nero-txt: theme(colors.gray.200);
+        --nero-bkg: theme(colors.gray.700);
+        --nero-txt-f: theme(colors.white);
+        --nero-bkg-f: theme(colors.gray.600);
+        --nero-txt-h: theme(colors.white);
+        --nero-bkg-h: theme(colors.gray.600);
+        --nero-txt-a: theme(colors.gray.300);
+        --nero-bkg-a: theme(colors.gray.800);
+    }
+
+    [data-theme="dark"],
+    :root.dark {
+        --ui-bc: var(--nero-bc);
+        --ui-txt: var(--nero-txt);
+        --ui-bkg: var(--nero-bkg);
+        --ui-txt-f: var(--nero-txt-f);
+        --ui-bkg-f: var(--nero-bkg-f);
+        --ui-txt-h: var(--nero-txt-h);
+        --ui-bkg-h: var(--nero-bkg-h);
+        --ui-txt-a: var(--nero-txt-a);
+        --ui-bkg-a: var(--nero-bkg-a);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --ui-bc: var(--nero-bc);
+            --ui-txt: var(--nero-txt);
+            --ui-bkg: var(--nero-bkg);
+            --ui-txt-f: var(--nero-txt-f);
+            --ui-bkg-f: var(--nero-bkg-f);
+            --ui-txt-h: var(--nero-txt-h);
+            --ui-bkg-h: var(--nero-bkg-h);
+            --ui-txt-a: var(--nero-txt-a);
+            --ui-bkg-a: var(--nero-bkg-a);
+        }
+    }
+}
