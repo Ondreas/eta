@@ -48,6 +48,7 @@
         --btn-tt: none; /* capitalize */
         --btn-br: theme(borderRadius.md);
         --btn-bw: theme(borderWidth.DEFAULT);
+        --btn-zIndex: unset;
     }
 
     [data-theme="dark"],
