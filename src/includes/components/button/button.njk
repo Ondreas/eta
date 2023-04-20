@@ -1,0 +1,42 @@
+{#
+---------------------------------------------------
+BUTTON with or without an icon.
+---------------------------------------------------
+@param: attr - attribute modifier | border, theme
+@param: style - inline CSS | e.g: "--btn-w:80px;"
+@param: class - custom classes | e.g: bg-green-500
+@param: reverse - icon layout position | true, false
+@param: icon - SVG symbol ID (no hashtag) | e.g: sun
+@param: iconClass - custom icon classes | e.g: fill-*
+@param: label - button label/text
+@param: labelClass - custom label classes | e.g: sr-only
+
+@usage:
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ element("button", { 
+    attr: "border", reverse: "true", 
+    style: "", class: "", 
+    icon: "exit", iconClass: "", 
+    label: "Logout" , labelClass: ""
+} )}}
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+#}
+
+<button type="button" 
+    {% if params.attr != '' %}data-btn="{{ params.attr }}"{% else %}data-btn{% endif %} 
+    {% if params.style != '' %}style="{{ params.style }}"{% endif %} 
+    {% if params.class != '' %}class="{{ params.class }}"{% endif %}>
+    {% if params.icon != '' %}
+        {% if params.reverse != 'true' %}
+    <svg class="w-5 h-5 {% if params.iconClass != '' %}{{ params.iconClass }}{% endif %}" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><use xlink:href="#{{ params.icon }}" /></svg>
+    <span data-btn-label {% if params.labelClass != '' %}{{ params.labelClass }}{% endif %}>{{ params.label }}</span>
+        {% else %}
+    <span data-btn-label {% if params.labelClass != '' %}{{ params.labelClass }}{% endif %}>{{ params.label }}</span>
+    <svg width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClass != '' %}class="{{ params.iconClass }}"{% endif %}><use xlink:href="#{{ params.icon }}" /></svg>
+        {% endif %}
+    {% else %}
+    <span data-btn-label {% if params.labelClass != '' %}{{ params.labelClass }}{% endif %}>{{ params.label }}</span>
+    {% endif %}
+</button>
