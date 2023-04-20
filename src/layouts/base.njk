@@ -1,0 +1,58 @@
+{%- from "system/macro-component.njk" import component -%}
+{%- from "system/macro-element.njk" import element -%}
+
+<!doctype html>
+<html class="no-js" dir="ltr" lang="{{ locale }}"
+    x-data="{ colorScheme: localStorage.getItem('colorScheme') || localStorage.setItem('colorScheme', 'system')}" 
+    x-init="$watch('colorScheme', val => localStorage.setItem('colorScheme', val))" 
+    :class="{ 'dark' : colorScheme === 'dark' || (colorScheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) }">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if title and title != 'Home' %}{{title}} - {% endif %}{{ config.siteTitle }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Meta -->
+    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ config.description }}{% endif %}">
+    <meta name="keywords" content="{% if keywords %}{{ keywords }}{% else %}{{ config.keywords }}{% endif %}">
+    <link rel="canonical" href="{{ config.url }}{{ page.url }}">
+    <!-- Facebook -->
+    <meta property="og:title" content="{% if (title != 'Home') %}{{title}} - {% endif %}{{ config.siteTitle }}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ config.description }}{% endif %}">
+    <meta property="og:url" content="{{ config.url }}{{ page.url }}">
+    <meta property="og:image" content="{% if image %}{{ image }}{% else %}{{ config.image }}{% endif %}">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="{{ card }}">
+    <meta name="twitter:site" content="{{ twitter }}">
+    <meta name="twitter:title" content="{% if (title != 'Home') %}{{title}} - {% endif %}{{ config.siteTitle }}">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ config.description }}{% endif %}">
+    <meta name="twitter:creator" content="{{ twitter }}">
+    <meta name="twitter:image" content="{{ config.url }}{{ page.url }}">
+    <meta name="twitter:domain" content="{% if image %}{{ image }}{% else %}{{ config.image }}{% endif %}">
+    <!-- Icons -->
+    <link rel="shortcut icon" type="image/png" href="/images/x16-favicon.png" sizes="16x16" />
+    <link rel="shortcut icon" type="image/png" href="/images/x32-favicon.png" sizes="32x32" />
+    <link rel="shortcut icon" type="image/png" href="/images/x64-favicon.png" sizes="64x64" />
+    <link rel="shortcut icon" type="image/png" href="/images/x256-favicon.png" sizes="256x256" />
+    <link rel="apple-touch-icon" type="image/png" href="/images/x256-favicon.png" />
+    {# theme/color scheme #}
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    {# JS #}
+    {% include "partials/head/head-script.njk" %}
+</head>
+<body class="p- transition-colors duration-300 ease-in-out" 
+    :class="colorScheme === 'dark' || (colorScheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark:text-gray-300 dark:bg-gray-900' : 'text-gray-700 bg-gray-50' ">
+    {% include "partials/svg-symbols.njk" %}
+    <div>
+		{{ content | safe }}
+    </div>
+    <script defer src="../assets/js/alpine.js"></script>
+    <script defer src="../assets/js/persist.js"></script>
+</body>
+</html>
