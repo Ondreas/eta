@@ -4,10 +4,10 @@
     "description": "Personal project",
     "main": "index.html",
     "scripts": {
-        "start": "npm-run-all clean dev:css dev:11ty",
+        "start": "npm-run-all clean -p dev:*",
         "clean": "rimraf dist",
-        "dev:11ty": "cross-env NODE_ENV=development npx @11ty/eleventy --serve --quiet",
-        "dev:css": "cross-env NODE_ENV=development postcss src/assets/css/index.css --o dist/assets/css/style.css --config ./postcss.config.js --watch",
+        "dev:11ty": "npx eleventy --serve --quiet",
+        "dev:css": "postcss src/assets/css/index.css --o dist/assets/css/style.css --config ./postcss.config.js --watch",
         "twcss": "tailwindcss -i src/assets/css/index.css -o dist/assets/css/style.css --watch --postcss",
         "build": "npm-run-all clean -p build:*",
         "build:css": "cross-env NODE_ENV=production postcss src/assets/css/index.css --o dist/assets/css/style.css --config ./postcss.config.js",
