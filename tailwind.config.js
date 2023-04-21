@@ -11,9 +11,9 @@ const rem = px => ({ [px]: `${px / 16}rem` });
 const px = num => ({ [num]: `${num}px` });
 
 module.exports = {
-    darkMode: "media", // or 'media' or 'class'
+    darkMode: "class", // or 'media' or 'class'
     content: [
-        "./src/**/*.{md,njk,html}"
+        "./src/**/*.{css,md,njk,html}"
     ],
     theme: {
         extend: {
