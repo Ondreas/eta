@@ -48,7 +48,23 @@
 </head>
 <body class="p- transition-colors duration-300 ease-in-out" 
     :class="colorScheme === 'dark' || (colorScheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark:text-gray-300 dark:bg-gray-900' : 'text-gray-700 bg-gray-50' ">
-    {% include "partials/svg-symbols.njk" %}
+    {% include "partials/symbols.njk" -%}
+    {{ element("button-group", { 
+        model: "theme-switch", roleClass: "gap-6", 
+        attr: "theme border", btnCss: "w-80", 
+        iconA: "sun", iconClassA: "fill-current stroke-current", 
+        iconB: "moon", iconClassB: "fill-current stroke-current", 
+        iconC: "cog", iconClassC: "", 
+        labelA: "Light", labelClassA: "", 
+        labelB: "Dark", labelClassB: "", 
+        labelC: "System", labelClassC: ""
+    } )}}
+    {{ element("button", { 
+        attr: "border", reverse: "true", 
+        style: "", class: "", 
+        icon: "exit", iconClass: "", 
+        label: "Logout" , labelClass: ""
+    } )}}
     <div>
 		{{ content | safe }}
     </div>
