@@ -1,0 +1,72 @@
+{#
+---------------------------------------------------
+BUTTON-GROUP with or without an icon.
+---------------------------------------------------
+@version: 0.1
+@author: Ondreas
+@github: github.com/Ondreas
+@twcss: ^3.3.1
+@alpinejs: ^3.12
+@demo: https://codepen.io/Ondreas/pen/
+
+@param: model - layout variation | e.g: "theme-switch"
+@param: style - inline CSS | e.g: "--btn-w:80px;"
+@param: roleClass - TWCSS classes for 'group' wrapper
+@param: attr - attribute modifier | "border theme"
+@param: btnClass - TWCSS classes for buttons
+@param: icon{A,B,C} - symbol ID (no hashtag) | e.g: sun
+@param: iconClass{A,B,C} - TWCSS classes for icons | e.g: fill-*
+@param: label{A,B,C} - button label/text
+@param: labelClass{A,B,C} - TWCSS classes for button's label
+
+@usage:
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ element("button", { 
+    model: "theme-switch", roleClass: "gap-6", 
+    attr: "theme border", btnCss: "", 
+    iconA: "sun", iconClassA: "", 
+    iconB: "moon", iconClassB: "", 
+    iconC: "cog", iconClassC: "", 
+    labelA: "Light", labelClassA: "", 
+    labelB: "Dark", labelClassB: "", 
+    labelC: "System", labelClassC: ""
+} )}}
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+#}
+<!--  button-group -->
+<div role="group" 
+    {%- if params.model == 'theme-switch' %} x-cloak{% endif %} 
+    {%- if params.style %} style="{{ params.style }}" {% endif %} class="flex{% if params.roleClass %} {{ params.roleClass }}{% endif %}">
+    <button type="button" 
+        {%- if params.attr != "" %} data-btn="{{ params.attr }}"{% else %} data-btn{% endif %}{%- if params.model != "theme-switch" %} class="rounded-r-none"{% endif -%}{%- if params.btnClass %} class="{{ params.btnClass }}" {% endif -%}
+        {%- if params.model == "theme-switch" %}
+        x-on:click=" colorScheme = 'light' " :aria-pressed="colorScheme === 'light' ? true : false"
+        {%- endif %}>
+        {%- if params.iconA %}
+        <svg width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClassA %}class="{{ params.iconClassA }}"{% endif %}><use xlink:href="#{{ params.iconA }}" /></svg>
+        {%- endif %}
+        <span data-btn-label{% if params.labelClassA %} class="{{ params.labelClassA }}"{% endif %}>{{ params.labelA }}</span>
+    </button>
+    <button type="button" 
+        {%- if params.attr != "" %} data-btn="{{ params.attr }}"{% else %} data-btn{% endif %}{%- if params.model != "theme-switch" %} class="rounded-none" {% endif -%}{%- if params.btnClass %} class="{{ params.btnClass }}" {% endif -%}
+        {%- if params.model == "theme-switch" %}
+        x-on:click=" colorScheme = 'dark' " :aria-pressed="colorScheme === 'dark' ? true : false"
+        {%- endif %}>
+        {%- if params.iconB %}
+        <svg width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClassB %}class="{{ params.iconClassB }}"{% endif %}><use xlink:href="#{{ params.iconB }}" /></svg>
+        {%- endif %}
+        <span data-btn-label{% if params.labelClassB %} class="{{ params.labelClassB }}"{% endif %}>{{ params.labelB }}</span>
+    </button>
+    <button type="button" 
+        {%- if params.attr != "" %} data-btn="{{ params.attr }}"{% else %} data-btn{% endif %}{%- if params.model != "theme-switch" %} class="rounded-l-none" {% endif -%}{%- if params.btnClass %} class="{{ params.btnClass }}" {% endif -%} 
+        {%- if params.model == "theme-switch" %}
+        x-on:click=" colorScheme = 'system' " :aria-pressed="colorScheme === 'system' ? true : false"
+        {%- endif %}>
+        {%- if params.iconC %}
+        <svg width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClassC %}class="{{ params.iconClassC }}"{% endif %}><use xlink:href="#{{ params.iconC }}" /></svg>
+        {%- endif %}
+        <span data-btn-label{% if params.labelClassC %} class="{{ params.labelClassC }}"{% endif %}>{{ params.labelC }}</span>
+    </button>
+</div>
