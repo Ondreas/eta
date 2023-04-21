@@ -37,7 +37,7 @@
         --ui-txt-a: var(--nero-txt-a);
         --ui-bkg-a: var(--nero-bkg-a);
     }
-
+    /*
     @media (prefers-color-scheme: dark) {
         :root {
             --ui-bc: var(--nero-bc);
@@ -51,4 +51,5 @@
             --ui-bkg-a: var(--nero-bkg-a);
         }
     }
+    */
 }
