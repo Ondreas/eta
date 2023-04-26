@@ -6,7 +6,7 @@
         font-display: swap;
         font-style: normal;
         font-named-instance: "Regular";
-        src: url("../fonts/Inter.var.woff2?v=3.19") format("woff2");
+        src: url("./assets/fonts/Inter.var.woff2?v=3.19") format("woff2");
     }
 
     html {
@@ -36,10 +36,16 @@
     }
 
     [hidden],
-    [x-cloak] {
-        display: none !important;
+    .js [x-cloak] {
+        display: none;
     }
 
+    a,
+    a:link,
+    a:focus,
+    a:focus-visible,
+    a:hover,
+    a:visited,
     abbr[title] {
         text-decoration: none;
         text-decoration-line: none;
@@ -60,6 +66,7 @@
         touch-action: manipulation;
     }
 
+    a:focus-visible,
     button:focus-visible,
     [type="button"]:focus-visible,
     [type="reset"]:focus-visible,
