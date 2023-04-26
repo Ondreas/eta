@@ -25,6 +25,20 @@
         --nero-bkg-a: theme(colors.gray.800);
     }
 
+    @media (prefers-color-scheme: dark) {
+        :root.no-js  {
+            --ui-bc: var(--nero-bc);
+            --ui-txt: var(--nero-txt);
+            --ui-bkg: var(--nero-bkg);
+            --ui-txt-f: var(--nero-txt-f);
+            --ui-bkg-f: var(--nero-bkg-f);
+            --ui-txt-h: var(--nero-txt-h);
+            --ui-bkg-h: var(--nero-bkg-h);
+            --ui-txt-a: var(--nero-txt-a);
+            --ui-bkg-a: var(--nero-bkg-a);
+        }
+    }
+
     [data-theme="dark"],
     :root.dark {
         --ui-bc: var(--nero-bc);
@@ -37,19 +51,4 @@
         --ui-txt-a: var(--nero-txt-a);
         --ui-bkg-a: var(--nero-bkg-a);
     }
-    /*
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --ui-bc: var(--nero-bc);
-            --ui-txt: var(--nero-txt);
-            --ui-bkg: var(--nero-bkg);
-            --ui-txt-f: var(--nero-txt-f);
-            --ui-bkg-f: var(--nero-bkg-f);
-            --ui-txt-h: var(--nero-txt-h);
-            --ui-bkg-h: var(--nero-bkg-h);
-            --ui-txt-a: var(--nero-txt-a);
-            --ui-bkg-a: var(--nero-bkg-a);
-        }
-    }
-    */
 }
