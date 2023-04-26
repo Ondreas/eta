@@ -1,0 +1,16 @@
+/* --------------------------------------------- */
+/* SKIP-LINK                                     */
+/* --------------------------------------------- */
+@layer base {
+    :root {
+        --skiplink-px: var(--ui-px);
+        --skiplink-py: var(--ui-px);
+        --skiplink-fs: var(--ui-fs);
+        --skiplink-fw: var(--ui-fw);
+        --skiplink-lh: var(--ui-lh);
+        --skiplink-br: var(--ui-br);
+        --skiplink-bw: theme(borderWidth.2);
+        --skiplink-txt: theme(colors.indigo.600);
+        --skiplink-bkg: theme(colors.white);
+    }
+}
