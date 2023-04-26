@@ -1,0 +1,40 @@
+/* --------------------------------------------- */
+/* NAVITEM                                       */
+/* --------------------------------------------- */
+@layer base {
+    :root {
+        --navitem-z: theme(zIndex.10);
+        --navitem-h: auto;
+        --navitem-min-h: var(--ui-size);
+        --navitem-px: theme(padding[8]);
+        --navitem-py: theme(padding[5]);
+        --navitem-fs: theme(fontSize.sm);
+        --navitem-fw: theme(fontWeight.semibold);
+        --navitem-lh: theme(lineHeight.normal);
+        --navitem-txt: var(--ui-txt);
+        --navitem-bkg: theme(colors.transparent);
+        --navitem-txt-f: var(--ui-txt-f);
+        --navitem-bkg-f: var(--ui-bkg-f);
+        --navitem-txt-h: var(--ui-txt-h);
+        --navitem-bkg-h: var(--ui-bkg-h);
+        --navitem-txt-a: var(--ui-txt-a);
+        --navitem-bkg-a: var(--ui-bkg-a);
+    }
+    /* NAVITEM --------------------------------- */
+    @media screen and (min-width: 640px) {
+        :root {
+            --navitem-h: unset;
+            --navitem-px: theme(padding[4]);
+            --navitem-py: unset;
+        }
+    }
+
+    /*
+    @media (prefers-color-scheme: dark) {
+        :root.no-js {}
+    }
+
+    [data-theme="dark"],
+    :root.dark {}
+    */
+}
