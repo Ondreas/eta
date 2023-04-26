@@ -1,3 +1,17 @@
+/* --------------------------------------------- */
+/* TOKENS :: Base                                */
+/* --------------------------------------------- */
 @import "../base/root/ui-colors.css";
 @import "../base/root/ui-base.css";
+
+/* --------------------------------------------- */
+/* TOKENS :: Elements                            */
+/* --------------------------------------------- */
 @import "../../../includes/elements/button/tokens.css";
+@import "../../../includes/elements/navitem/tokens.css";
+@import "../../../includes/elements/skiplink/tokens.css";
+
+/* --------------------------------------------- */
+/* TOKENS :: Components                          */
+/* --------------------------------------------- */
+@import "../../../includes/components/nav/tokens.css";
