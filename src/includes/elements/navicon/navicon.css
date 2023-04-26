@@ -5,7 +5,7 @@
     [data-btn*="navicon"] {
         --btn-w: var(--ui-size);
         --btn-bkg: theme(colors.transparent);
-        --btn-zIndex: theme(zIndex.50);
+        --btn-z: theme(zIndex.0);
         position: absolute;
         /*
         ** margin-left: calc(var(--btn-px) * -1);
