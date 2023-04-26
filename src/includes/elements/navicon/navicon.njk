@@ -1,0 +1,45 @@
+{#-
+---------------------------------------------------
+BUTTON :: Navicon
+---------------------------------------------------
+@version: 0.1
+@author: Ondreas
+@github: github.com/Ondreas
+@twcss: ^3.3.1
+@alpinejs: ^3.12
+
+@params: attr - attribute add-on/modifier
+@param: style - inline tokens (CSS variables)
+@param: class - custom TWCSS classes
+@param: iconW - icon width
+@param: iconH - icon height
+@param: iconClass - icon custom TWCSS classes
+@param: label - navicon main text
+@param: labelOn - navicon 'no-js' active text
+@param: labelOff - navicon 'no-js' inactive text
+
+@usage:
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ element("navicon", { 
+    attr: "border",  
+    style: "", class: "", 
+    iconW: "36", iconH: "36", iconClass: "", 
+    label: "Menu" , labelClass: "",
+    labelOn: "expanded", labelOff: "collapsed"
+} )}}
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+-#}
+<!-- navicon -->
+<button type="button" 
+    data-btn="navicon {% if params.attr %}{{ params.attr }}{% endif %}" 
+    {%- if params.style %} style="{{ params.style }}"{% endif %} 
+    class="group {% if params.class %}{{ params.class }}{% endif %}" 
+    @click="navOpen = !navOpen" :aria-pressed="navOpen" :aria-expanded="navOpen">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="{{ params.iconW }}" height="{{ params.iconH }}" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" {% if params.iconClass %}class="{{ params.iconClass }}"{% endif %}><g><path d="M6,12 L18,12" /><path d="M6,12 L18,12" /><path d="M6,12 L18,12" /></g></svg>
+    <span data-btn-label {%if params.labelClass %}class="{{ params.labelClass }}"{% endif %}>{{ params.label }}
+        <span data-label="on">{{ params.labelOn }}</span>
+        <span data-label="off">{{ params.labelOff }}</span>
+    </span>
+</button>
