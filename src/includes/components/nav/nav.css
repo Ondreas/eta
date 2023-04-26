@@ -56,11 +56,18 @@
     /* NAVLIST                                   */
     /* ----------------------------------------- */
     .no-js [data-navlist] > *:not([hidden]) ~ *:not([hidden]) {
+        --navlist-bw: theme(borderWidth.DEFAULT);
         --tw-divide-y-reverse: 0;
-        border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-        border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+        border-top-width: calc(var(--navlist-bw) * calc(1 - var(--tw-divide-y-reverse)));
+        border-bottom-width: calc(var(--navlist-bw) * var(--tw-divide-y-reverse));
         border-style: solid;
         border-color: var(--navlist-bc);
+    }
+
+    @media (min-width: 640px) {
+        .no-js [data-navlist] > *:not([hidden]) ~ *:not([hidden]) {
+            --navlist-bw: theme(borderWidth.0);
+        }
     }
 }
 /*
