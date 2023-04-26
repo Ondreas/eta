@@ -1,6 +1,18 @@
+/* --------------------------------------------- */
+/* ELEMENTS                                      */
+/* --------------------------------------------- */
 @import "../../../includes/elements/button/button.css";
 @import "../../../includes/elements/button-group/button-group.css";
 @import "../../../includes/elements/navicon/navicon.css";
+@import "../../../includes/elements/navitem/navitem.css";
+@import "../../../includes/elements/skiplink/skiplink.css";
+
+/* --------------------------------------------- */
+/* COMPONENTS                                    */
+/* --------------------------------------------- */
+@import "../../../includes/components/nav/topbar.css";
+@import "../../../includes/components/nav/backdrop.css";
+@import "../../../includes/components/nav/nav.css";
 
 @layer components {
     /* rules */
