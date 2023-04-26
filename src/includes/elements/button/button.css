@@ -11,7 +11,7 @@
         ** user-select: none;
         ** touch-action: manipulation;
         */
-        z-index: var(--btn-zIndex);
+        z-index: var(--btn-z);
         position: relative;
         display: inline-flex;
         align-items: center;
