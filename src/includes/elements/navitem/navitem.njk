@@ -40,7 +40,7 @@ NAVITEM
     <span data-navitem-label {% if params.labelClass %}class="{{ params.labelClass }}"{% endif %}>{{ params.label }}</span>
         {%- else %}
     <span data-navitem-label {% if params.labelClass %}class="{{ params.labelClass }}"{% endif %}>{{ params.label }}</span>
-    <svg width="{{ params.iconW }}" height="{{ iconH }}" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClass %}class="{{ params.iconClass }}"{% endif %}><use xlink:href="#{{ params.icon }}" /></svg>
+    <svg width="{{ params.iconW }}" height="{{ params.iconH }}" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" {% if params.iconClass %}class="{{ params.iconClass }}"{% endif %}><use xlink:href="#{{ params.icon }}" /></svg>
         {%- endif %}
     {%- else %}
     {{ params.label }}
