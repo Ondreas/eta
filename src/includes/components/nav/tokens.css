@@ -1,0 +1,23 @@
+/* --------------------------------------------- */
+/* NAVIGATION                                    */
+/* --------------------------------------------- */
+@layer base {
+    :root {
+        --nav-w: 256px;
+        --nav-bkg: theme(colors.white);
+        --navlist-bc: theme(borderColor.DEFAULT);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root.no-js {
+            --nav-bkg: theme(colors.gray.800);
+            --navlist-bc: rgb(75 85 99 / 30%); /* theme(colors.gray.600) */
+        }
+    }
+
+    [data-theme="dark"],
+    :root.dark {
+        --nav-bkg: theme(colors.gray.800);
+    }
+    
+}

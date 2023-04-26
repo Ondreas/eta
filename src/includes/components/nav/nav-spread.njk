@@ -1,0 +1,134 @@
+<div data-topbar="outer" x-data="{ navOpen: false }">
+    <div data-topbar="inner" class="transition-colors duration-300 delay-500 ease-in-out">
+        <div class="overflow-hidden relative flex justify-center shrink-0 w-full sm:justify-start sm:w-auto">
+            <header class="flex w-full">
+                <h1 class="flex w-full m-0 p-0">
+                    <a href="" class="outline-none flex items-center justify-center self-stretch mx-auto px-2 py-0.5 text-sm text-center whitespace-nowrap text-gray-800 dark:text-gray-300 no-js:text-gray-300 focus-visible:ring focus-visible:ring-inset sm:justify-start sm:mx-0 sm:text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32" class="mx-2"><defs><mask id="m" maskUnits="userSpaceOnUse"><rect x="-512" y="-512" width="1024" height="1024" fill="#FFFFFF"/><path d="M 243.00977,278.5 321.85352,415.0625 185.27539,378.5 85.320312,278.5 Z"/></mask><g id="a"><path d="m 256,256 -225,0 100,100 100,0" mask="url(#m)" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="45"/></g><g id="b"><use xlink:href="#a"/><use xlink:href="#a" transform="scale(1,-1) translate(0,-512)"/></g></defs><g><use xlink:href="#b"/><use xlink:href="#b" transform="rotate(120 256,256)"/><use xlink:href="#b" transform="rotate(240 256,256)"/><nimateTransform attributeName="transform" type="rotate" values="0 256,256;360 256,256" dur="10s" repeatCount="indefinite"/></g></svg>
+                        <span class="flex flex-col px-2">
+                            <strong class="text-lg font-extrabold leading-normal tracking-wider uppercase">Acme</strong>
+                            <small class="sr-only">Slogan</small>
+                        </span>
+                    </a>
+                </h1>
+            </header>
+        </div>
+        <!-- skip-link -->
+        {% include "elements/skiplink/tw-skiplink.njk" %}
+        <div class="group relative flex items-center justify-end self-stretch sm:justify-star sm:w-full">
+            {{ element("navicon",{ 
+                attr: "", 
+                style: "", class: "group", 
+                iconW: "36", iconH: "36", iconClass: "", 
+                label: "Menu" , labelClass: "sr-only",
+                labelOn: "expanded", labelOff: "collapsed"
+            })}}
+            <div data-backdrop x-cloak 
+                x-transition:enter="transition linear duration-500" 
+                x-transition:enter-start="opacity-0 scale-100" 
+                x-transition:enter-end="opacity-100 scale-100" 
+                x-transition:leave="transition linear duration-500" 
+                x-transition:leave-start="opacity-100 scale-100" 
+                x-transition:leave-end="opacity-0 scale-100" 
+                x-show="navOpen" 
+                @click.away="navOpen = false">
+            </div>
+            <nav data-nav x-cloak 
+                x-show="navOpen" 
+                x-on:click.away="navOpen = false" 
+                x-transition:enter="transition linear duration-500" 
+                x-transition:enter-start="opacity-100 scale-100 translate-x-full" 
+                x-transition:enter-end="opacity-100 scale-100 translate-x-0" 
+                x-transition:leave="transition linear duration-500" 
+                x-transition:leave-start="opacity-100 scale-100 translate-x-0" 
+                x-transition:leave-end="opacity-100 scale-100 translate-x-full"  
+                class="group" 
+                aria-labelledby="nav-title">
+                <h2 id="nav-title" class="sr-only">Primary navigation</h2>
+                <!-- navlist :: primary -->
+                <div class="relative flex flex-wrap w-full">
+                    {{ element("button", { 
+                        attr: "", reverse: "",
+                        style: "--btn-bkg:transparent;", 
+                        class: "group mt-2.5 ml-6 p-0 sm:hidden no-js:hidden", 
+                        icon: "x", iconClass: "w-8 h-8", 
+                        label: "Close menu" , labelClass: "sr-only"
+                    } )}}
+                    <ul data-navlist class="flex flex-col divide-y dark:divide-gray-600/30 w-full m-0 mt-8 p-0 sm:flex-row sm:divide-y-0 sm:w-auto sm:mt-0">
+                        <li class="flex"><a data-navitem href="" class="">Products</a></li>
+                        <li class="flex"><a data-navitem href="" class="">About</a></li>
+                        <li class="flex"><a data-navitem href="" class="">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- navlist :: secondary -->
+                <div class="relative flex justify-end w-full">
+                    <ul data-navlist class="flex flex-col divide-y dark:divide-gray-600/30 w-full m-0 p-0 sm:flex-row sm:divide-y-0 sm:w-auto">
+                        <li class="flex"><a data-navitem href="" class="">Settings</a></li>
+                        <li class="flex"><a data-navitem href="" class="">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        {#
+        <div x-data="{ isOpen: false }"
+             class="group | relative flex items-center justify-end self-stretch | sm:justify-star sm:w-full">
+            <button type="button" data-btn="navico" @click="isOpen = !isOpen" :aria-pressed="isOpen" :aria-expanded="isOpen" class="group sm:hidden | z- 50 appearance-none outline-none select-none touch-manipulation [ absolute ] inline-flex items-center justify-center w-11 h-11 m-0 p-0 text-sm leading-normal font-medium text-center normal-case horizontal-tb transition-colors whitespace-nowrap borde rounded-md border-gray-300 dark:border-gray-600 text-gray-600 bg-whit dark:text-gray-300 dark:bg-gray-70 focus-visible:z -10 focus-visible:ring-inset focus-visible:ring-2 focus-visible:text-gray-900 focus-visible:bg-gray-50 dark:focus-visible:text-white dark:focus-visible:bg-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 active:shadow-inner active:text-gray-900 active:bg-gray-200 dark:active:text-gray-300 dark:active:bg-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="overflow-hidden inline-flex shrink-0 w-11 h-11 rounded-md"><g>
+                    <path d="M6,12 L18,12" class="origin-center transition-transform -translate-y-1 duration-300 delay-75 group-hover:translate-y-0 group-hover:rotate-45 group-focus-visible:translate-y-0 group-focus-visible:rotate-45 group-focus-within:translate-y-0 group-focus-within:rotate-45" />
+                    <path d="M6,12 L18,12" class="origin-center transition-transform duration-200 delay-100 group-hover:-translate-x-full group-focus-visible:-translate-x-full group-focus-within:-translate-x-full" />
+                    <path d="M6,12 L18,12" class="origin-center transition-transform translate-y-1 duration-300 delay-75 group-hover:translate-y-0 group-hover:-rotate-45 group-focus-visible:translate-y-0 group-focus-visible:-rotate-45 group-focus-within:translate-y-0 group-focus-within:-rotate-45" />
+                </g></svg>
+                <span class="sr-only px-2 uppercase">Menu
+                    <span data-label="on" class="hidden no-js:group-hover:block no-js:group-focus-visible:block no-js:group-focus-within:block">expanded</span>
+                    <span data-label="off" class="hidden no-js:block no-js:group-hover:hidden no-js:group-focus-visible:hidden no-js:group-focus-within:hidden">collapsed</span>
+                </span>
+            </button>
+            <!-- backdrop -->
+            <div data-backdrop 
+                x-transition:enter="transition linear duration-500" 
+                x-transition:enter-start="opacity-0 scale-100" 
+                x-transition:enter-end="opacity-100 scale-100" 
+                x-transition:leave="transition linear duration-500" 
+                x-transition:leave-start="opacity-100 scale-100" 
+                x-transition:leave-end="opacity-0 scale-100" 
+                x-show="isOpen" 
+                @click.away="isOpen = false" 
+                x-cloak 
+                class="fixed inset-0 w-screen h-screen bg-black/40 will-change-transform no-js:translate-x-full no-js:animate-hide-right no-js:pointer-events-none no-js:group-hover:animate-show-right no-js:group-focus-within:animate-show-right sm:hidden"></div>
+            <!-- navigation -->
+            <nav x-transition:enter="transition linear duration-500" 
+                 x-transition:enter-start="opacity-100 scale-100 translate-x-full" 
+                 x-transition:enter-end="opacity-100 scale-100 translate-x-0" 
+                 x-transition:leave="transition linear duration-500" 
+                 x-transition:leave-start="opacity-100 scale-100 translate-x-0" 
+                 x-transition:leave-end="opacity-100 scale-100 translate-x-full" 
+                 x-show="isOpen" 
+                 x-cloak 
+                 x-on:click.away="isOpen = false" 
+                 class="group | overflow-auto fixed top-0 right-0 bottom-0 | flex flex-col justify-between self-stretch w-drawer h-screen ml-4 | transition-transform duration-300 ease-out-sine shadow-2xl | bg-white dark:bg-gray-800 will-change-transform | sm:relative sm:flex-row sm:justify-between sm:inset-auto sm:w-full sm:h-[unset] sm:shadow-none sm:transition-none | no-js:translate-x-full no-js:sm:translate-x-0 no-js:group-hover:translate-x-0 no-js:group-focus-within:translate-x-0" 
+                 aria-labelledby="nav-title">
+                <h2 id="nav-title" class="sr-only">Primary navigation</h2>
+                <!-- navlist :: left -->
+                <div class="relative flex flex-wrap w-full">
+                    <button class="group sm:hidden | appearance-none outline-none select-none touch-manipulation self-en inline-flex items-center justify-center w-11 h-11 mt-2.5 ml-6 p-0 text-sm leading-normal font-medium text-center normal-case horizontal-tb transition-colors whitespace-nowrap borde rounded-md border-gray-300 dark:border-gray-600 text-gray-600 bg-whit dark:text-gray-300 dark:bg-gray-70 focus-visible:z -10 focus-visible:ring-inset focus-visible:ring-2 focus-visible:text-gray-900 focus-visible:bg-gray-50 dark:focus-visible:text-white dark:focus-visible:bg-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 active:shadow-inner active:text-gray-900 active:bg-gray-200 dark:active:text-gray-300 dark:active:bg-gray-800 | no-js:hidde" @click="isOpen = ! isOpen">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="w-11 h-11"><g><path d="M7.75,7.75 L16.25,16.25" /><path d="M7.75,16.25 L16.25,7.75" /></g></svg>
+                    </button>
+                    <ul class="flex flex-col divide-y dark:divide-gray-600/30 w-full m-0 mt-8 p-0 | sm:flex-row sm:divide-y-0 sm:w-auto">
+                        <li class="flex"><a data-navitem href="" class="">Products</a></li>
+                        <li class="flex"><a data-navitem href="" class="">About</a></li>
+                        <li class="flex"><a data-navitem href="" class="">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- navlist :: right -->
+                <div class="relative flex justify-end w-full">
+                    <ul class="flex flex-col divide-y dark:divide-gray-600/30 w-full m-0 p-0 | sm:flex-row sm:divide-y-0 sm:w-auto">
+                        <li class="flex"><a data-navitem href="" class="">Settings</a></li>
+                        <li class="flex"><a data-navitem href="" class="">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        #}
+    </div>
+</div>
