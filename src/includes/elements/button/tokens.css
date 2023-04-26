@@ -48,7 +48,21 @@
         --btn-tt: none; /* capitalize */
         --btn-br: theme(borderRadius.md);
         --btn-bw: theme(borderWidth.DEFAULT);
-        --btn-zIndex: unset;
+        --btn-z: unset;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root.no-js {
+            --btn-bc: var(--nero-btn-bc, var(--nero-bc));
+            --btn-txt: var(--nero-btn-txt, var(--nero-txt));
+            --btn-bkg: var(--nero-btn-bkg, var(--nero-bkg));
+            --btn-txt-f: var(--nero-btn-txt-f, var(--nero-txt-f));
+            --btn-bkg-f: var(--nero-btn-bkg-f, var(--nero-bkg-f));
+            --btn-txt-h: var(--nero-btn-txt-h, var(--nero-txt-h));
+            --btn-bkg-h: var(--nero-btn-bkg-h, var(--nero-bkg-h));
+            --btn-txt-a: var(--nero-btn-txt-a, var(--nero-txt-a));
+            --btn-bkg-a: var(--nero-btn-bkg-a, var(--nero-bkg-a));
+        }
     }
 
     [data-theme="dark"],
@@ -63,19 +77,4 @@
         --btn-txt-a: var(--nero-btn-txt-a, var(--nero-txt-a));
         --btn-bkg-a: var(--nero-btn-bkg-a, var(--nero-bkg-a));
     }
-/*
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --btn-bc: var(--nero-btn-bc, var(--nero-bc));
-            --btn-txt: var(--nero-btn-txt, var(--nero-txt));
-            --btn-bkg: var(--nero-btn-bkg, var(--nero-bkg));
-            --btn-txt-f: var(--nero-btn-txt-f, var(--nero-txt-f));
-            --btn-bkg-f: var(--nero-btn-bkg-f, var(--nero-bkg-f));
-            --btn-txt-h: var(--nero-btn-txt-h, var(--nero-txt-h));
-            --btn-bkg-h: var(--nero-btn-bkg-h, var(--nero-bkg-h));
-            --btn-txt-a: var(--nero-btn-txt-a, var(--nero-txt-a));
-            --btn-bkg-a: var(--nero-btn-bkg-a, var(--nero-bkg-a));
-        }
-    }
-*/
 }
