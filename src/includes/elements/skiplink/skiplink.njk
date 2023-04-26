@@ -1,0 +1,22 @@
+{#-
+---------------------------------------------------
+SKIP-LINK :: header
+---------------------------------------------------
+@version: 0.1
+@author: Ondreas
+@github: github.com/Ondreas
+@twcss: ^3.3.1
+
+@param: style - inline tokens (CSS variables)
+@param: class - custom TWCSS classes
+@param: label - 'skip-link' text
+
+@usage:
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+{{ element("skiplink", { 
+    style: "", class: "",  
+    label: "Skip to main content"
+})}}
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+-#}
+<a data-skiplink href="#main-content">Skip to main content</a>
