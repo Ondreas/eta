@@ -1,0 +1,61 @@
+/* --------------------------------------------- */
+/* BACKDROP                                      */
+/* --------------------------------------------- */
+@layer components {
+    [data-backdrop] {
+        z-index: -1;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0 0 0 / 0.4);
+        will-change: transform;
+    }
+
+    @media (min-width: 640px) {
+        [data-backdrop] {
+            display: none;
+        }
+    }
+
+    .no-js [data-backdrop] {
+        transform: translateX(-100%);
+        pointer-events: none;
+        animation: hide-right 300ms ease-out backwards;
+    }
+
+    .no-js .group:focus-within [data-backdrop],
+    .no-js .group:hover [data-backdrop] {
+        animation: show-right 150ms ease-in forwards;
+    }
+
+    @keyframes hide-right {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        70% {
+            opacity: 0;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes show-right {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        1% {
+            opacity: 0;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
